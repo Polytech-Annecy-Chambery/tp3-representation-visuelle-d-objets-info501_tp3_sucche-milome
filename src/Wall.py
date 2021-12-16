@@ -41,8 +41,7 @@ class Wall:
         self.parentSection = Section({'width': self.parameters['width'], \
                                       'height': self.parameters['height'], \
                                       'thickness': self.parameters['thickness'], \
-                                      'color': self.parameters['color'],
-                                      'position': self.parameters['position']})
+                                      'color': self.parameters['color'],})
         self.objects.append(self.parentSection) 
         
     # Getter
@@ -67,7 +66,8 @@ class Wall:
         pass        
                     
     # Draws the faces
-    def draw(self):
-        # A compléter en remplaçant pass par votre code
-        pass
+    def draw(self):        
+        for x in self.objects:
+            x.draw()
+        
   

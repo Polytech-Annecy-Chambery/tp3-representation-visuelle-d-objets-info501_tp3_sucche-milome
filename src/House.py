@@ -20,7 +20,7 @@ class House:
         if 'position' not in self.parameters:
             self.parameters['position'] = [0, 0, 0]  
         if 'orientation' not in self.parameters:
-            self.parameters['orientation'] = 0  
+            self.parameters['orientation'] = 90  
                 
         # Objects list
         self.objects = []
@@ -41,5 +41,9 @@ class House:
             
     # Draws the house      
     def draw(self):  
-        # A compléter en remplaçant pass par votre code
-        pass        
+        gl.glPushMatrix()
+        gl.glTranslate(self.parameters['position'][0],self.parameters['position'][1],self.parameters['position'][2])
+        for x in self.objects:      
+            gl.glRotate(self.getParameter('orientation'),0,0,1)
+            x.draw()
+        gl.glPopMatrix()
